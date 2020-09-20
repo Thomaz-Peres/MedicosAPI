@@ -6,6 +6,7 @@ using DesafioMedicos.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DesafioMedicos.Validations;
+using System;
 
 namespace DesafioMedicos.Controllers
 {
@@ -58,6 +59,47 @@ namespace DesafioMedicos.Controllers
             else
             {
                 return BadRequest(ModelState);
+            }
+        }
+
+        [HttpPut]
+        [Route("{id:int}")]
+        public async Task<ActionResult<Doctors>> Put(
+            [FromBody] Doctors model,
+            int id)
+        {
+            if (id != model.MedicoID)
+                return NotFound(new { message = "Doutor não encontrado"});
+
+            if(ModelState.IsValid)
+            {
+                _context.Entry<Doctors>(model).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+                return Ok(model);
+            }
+            else
+            {
+                return BadRequest(new { message = "Não foi possivel atualizar o medico"});
+            }
+        }
+
+        [HttpDelete]
+        [Route("{id:int}")]
+        public async Task<ActionResult<Doctors>> Delete(int id)
+        {
+            var doutor = await _context.Doctors.FirstOrDefaultAsync(x => x.MedicoID == id);
+            if(doutor == null)
+                return NotFound(new { message = "Doutor não foi encontrado"});
+
+            try
+            {
+                _context.Doctors.Remove(doutor);
+                await _context.SaveChangesAsync();
+                return Ok(new { message = "Doutor foi removido com sucesso"});
+            }
+            catch(Exception)
+            {
+                return BadRequest(new { message = "Não foi possivel remover o o doutor"});
             }
         }
     }
