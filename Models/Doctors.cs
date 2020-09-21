@@ -13,6 +13,7 @@ namespace DesafioMedicos.Models
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "CPF é obrigatório")]
+        [ValidaCPF(ErrorMessage = "Não esta do jeito correto")]
         public string Cpf { get; set; }
 
         [Required]

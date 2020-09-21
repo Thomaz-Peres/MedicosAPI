@@ -21,7 +21,7 @@ namespace DesafioMedicos
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Medicos"));
-            services.AddScoped(DataContext, DataContext);
+            services.AddScoped<DataContext, DataContext>();
             services.AddControllers();
         }
 

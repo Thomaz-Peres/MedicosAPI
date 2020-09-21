@@ -4,6 +4,14 @@ namespace DesafioMedicos.Validations
 {
     public class ValidaCPF : ValidationAttribute
     {
+        public override bool IsValid(object value)
+        {
+            if (value == null || string.IsNullOrEmpty(value.ToString()))
+                return false;
+
+            return IsCPF(value.ToString());
+        }
+
         public static bool IsCPF(string cpf)
         {
             var multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
