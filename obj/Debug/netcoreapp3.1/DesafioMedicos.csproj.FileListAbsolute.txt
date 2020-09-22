@@ -59,3 +59,5 @@ C:\Users\AlphaPaiN\dev\Testes\DesafioMedicos\obj\Debug\netcoreapp3.1\staticwebas
 C:\Users\AlphaPaiN\dev\Testes\DesafioMedicos\obj\Debug\netcoreapp3.1\DesafioMedicos.dll
 C:\Users\AlphaPaiN\dev\Testes\DesafioMedicos\obj\Debug\netcoreapp3.1\DesafioMedicos.pdb
 C:\Users\AlphaPaiN\dev\Testes\DesafioMedicos\obj\Debug\netcoreapp3.1\DesafioMedicos.genruntimeconfig.cache
+C:\Users\AlphaPaiN\dev\Testes\DesafioMedicos\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\AlphaPaiN\dev\Testes\DesafioMedicos\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
