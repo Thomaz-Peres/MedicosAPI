@@ -11,5 +11,6 @@ namespace DesafioMedicos.Data
         }
 
         public DbSet<Doctors> Doctors { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
